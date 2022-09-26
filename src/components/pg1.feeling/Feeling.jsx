@@ -8,11 +8,19 @@ import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 //MUI imports
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import { RadioGroup, FormControl, FormControlLabel, FormLabel, FormHelperText, Radio } from '@mui/material';
+import { 
+    RadioGroup, 
+    FormControl, 
+    FormControlLabel, 
+    FormLabel, 
+    FormHelperText, 
+    Radio, 
+    Box, 
+    Button, 
+    CardActions, 
+    CardContent, 
+    Card 
+} from '@mui/material';
 
 export default function Feeling() {
     const dispatch = useDispatch();
@@ -41,31 +49,29 @@ export default function Feeling() {
     };
 
     return (
-        <>
-
-        <Card varient="outlined" sx={{maxWidth: 450}}>
-            <CardContent>
-
-                <FormControl sx={{ m: 3 }} error={error} variant="standard">
-                    <FormLabel>How are you feeling this week?</FormLabel>
-                        <RadioGroup
-                            value={value}
-                            onChange={handleChange}
-                            row
-                        >
-                            <FormControlLabel value="1" control={<Radio />} label="1" />
-                            <FormControlLabel value="2" control={<Radio />} label="2" />
-                            <FormControlLabel value="3" control={<Radio />} label="3" />
-                            <FormControlLabel value="4" control={<Radio />} label="4" />
-                            <FormControlLabel value="5" control={<Radio />} label="5" />
-                        </RadioGroup>
-                    <FormHelperText>{helperText}</FormHelperText>
-                </FormControl>
-                </CardContent>
-            <CardActions>
-                <Button onClick={handleClick} size="small">SUBMIT</Button>
-            </CardActions>
-        </Card>
-    </>
+        <Box className="displayField">
+            <Card varient="outlined" className="feedbackCard" sx={{maxWidth: 450}}>
+                <CardContent>
+                    <FormControl sx={{ m: 3 }} error={error} variant="standard">
+                        <FormLabel>How are you feeling this week?</FormLabel>
+                            <RadioGroup
+                                value={value}
+                                onChange={handleChange}
+                                row
+                            >
+                                <FormControlLabel value="1" control={<Radio />} label="1" />
+                                <FormControlLabel value="2" control={<Radio />} label="2" />
+                                <FormControlLabel value="3" control={<Radio />} label="3" />
+                                <FormControlLabel value="4" control={<Radio />} label="4" />
+                                <FormControlLabel value="5" control={<Radio />} label="5" />
+                            </RadioGroup>
+                        <FormHelperText>{helperText}</FormHelperText>
+                    </FormControl>
+                    </CardContent>
+                <CardActions>
+                    <Button onClick={handleClick} size="small">SUBMIT</Button>
+                </CardActions>
+            </Card>
+        </Box>
   );
 }

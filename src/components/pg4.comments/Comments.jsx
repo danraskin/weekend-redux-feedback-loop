@@ -29,25 +29,20 @@ export default function Comments() {
     }
 
     return (
-        <>
-            <Card varient="outlined" sx={{maxWidth: 275}}>
-            <CardContent>
-                <MuiInput
-                    value={value}
-                    size="small"
-                    sx ={{width: 250}}
-                    onChange={event=>setValue(event.target.value)}
-
-                />
-            </CardContent>
-            <CardActions>
-                <Button onClick={handleClick} size="small">SUBMIT</Button>
-            </CardActions>
-        </Card>
-
-        <Box sx={{ width: 300 }}>
-
+        <Box className="displayField">
+            <Card varient="outlined" className="feedbackCard" sx={{maxWidth: 450}}>
+                <CardContent>Are there any comments you'd like to add?
+                    <MuiInput
+                        value={value}
+                        size="small"
+                        sx ={{width: 250}}
+                        onChange={event=>setValue(event.target.value)}
+                    />
+                </CardContent>
+                <CardActions>
+                    <Button onClick={handleClick} size="small">SUBMIT</Button>
+                </CardActions>
+            </Card>
         </Box>
-    </>
     );
 }
