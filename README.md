@@ -12,15 +12,15 @@ To Do
     [x] POST
     [] GET (for stretch)
 [x] server-side SQL logic
-[] page structure //MUI design
+[x] page structure
     [x] user inputs
     [x] buttons
-    [] change inputs from sliders
-    [] alerts
+    [x] change inputs from sliders
+    [x] alerts
 [] MUI DESIGN
     [] center card
     [] format input cards
     [] format review display, possibly with fun 'interactive' stuff?
-[] page navigation
-    [] success page to new form
+[x] page navigation
+    [x] success page to new form
 [] user correction?

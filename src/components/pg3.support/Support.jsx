@@ -8,54 +8,64 @@ import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 //MUI imports
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
-import Slider from '@mui/material/Slider';
-import MuiInput from '@mui/material/Input';
+import { RadioGroup, FormControl, FormControlLabel, FormLabel, FormHelperText, Radio } from '@mui/material';
 
 export default function Support() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const [error, setError] = useState(false);
+    const [helperText, setHelperText] = useState('');
     const [value, setValue] = useState(0);
 
     const userResponse = { support: value };
 
     const handleClick = () => {
-        dispatch({ type: "INPUT_USER_ENTRY", payload: userResponse })
-        history.push('/pg4'); // send to COMMENTS
+        if (value === 0) {
+            setHelperText('Make sure to fill out this form!')
+            setError(true);
+        } else {
+            dispatch({ type: "INPUT_USER_ENTRY", payload: userResponse })
+            history.push('/pg4'); //SEND TO COMMENTS
+        }
     }
+
+    const handleChange = (event) => {
+        setValue(event.target.value);
+        setHelperText(' ');
+        setError(false);
+    };
 
     return (
         <>
-        <Card varient="outlined" sx={{maxWidth: 275}}>
-            <CardContent>
-                <MuiInput
-                    sx={{width:42}}
-                    value={value}
-                    size="small"
-                />
-                <Slider
-                    value={typeof value === 'number' ? value : 0}
-                    onChange={(event) => setValue(event.target.value)}
-                    step={1}
-                    min={0}
-                    max={5}
-                />
 
-            </CardContent>
+        <Card varient="outlined" sx={{maxWidth: 450}}>
+            <CardContent>
+
+                <FormControl sx={{ m: 3 }} error={error} variant="standard">
+                    <FormLabel>How are you feeling this week?</FormLabel>
+                        <RadioGroup
+                            value={value}
+                            onChange={handleChange}
+                            row
+                        >
+                            <FormControlLabel value="1" control={<Radio />} label="1" />
+                            <FormControlLabel value="2" control={<Radio />} label="2" />
+                            <FormControlLabel value="3" control={<Radio />} label="3" />
+                            <FormControlLabel value="4" control={<Radio />} label="4" />
+                            <FormControlLabel value="5" control={<Radio />} label="5" />
+                        </RadioGroup>
+                    <FormHelperText>{helperText}</FormHelperText>
+                </FormControl>
+                </CardContent>
             <CardActions>
                 <Button onClick={handleClick} size="small">SUBMIT</Button>
             </CardActions>
         </Card>
-
-      <Box sx={{ width: 300 }}>
-
-    </Box>
     </>
   );
 }
