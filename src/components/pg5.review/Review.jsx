@@ -7,8 +7,6 @@ import { HashRouter as Router, Route, useHistory } from 'react-router-dom';
 import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
-
-
 //MUI imports
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';

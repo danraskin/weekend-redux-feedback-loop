@@ -26,12 +26,12 @@ export default function Feeling() {
     const dispatch = useDispatch();
     const history = useHistory();
     
-    const [error, setError] = useState(false);
-    const [helperText, setHelperText] = useState('');
-    const [value, setValue] = useState(0);
+    const [error, setError] = useState(false); //error value determines error display on user submit if no value selected
+    const [helperText, setHelperText] = useState(''); //error text
+    const [value, setValue] = useState(0); //value is radio-button value. default is 0; user must seelct 1-5
 
-    const userResponse = { feeling: value };
-    const init = useSelector(store=>store.responseData.feeling);
+    const userResponse = { feeling: value }; //data struture for user response
+    const init = useSelector(store=>store.responseData.feeling);//initial value is is called from store/reducer.
 
     useEffect(() => {   
         setValue(init);
@@ -39,15 +39,16 @@ export default function Feeling() {
 
 
     const handleClick = () => {
-        if (value === 0) {
+        if (value === 0) { //user must select value 1-5
             setHelperText('Make sure to fill out this form!')
-            setError(true);
-        } else {
-            dispatch({ type: "INPUT_USER_ENTRY", payload: userResponse })
-            history.push('/pg2'); //SEND TO UNDERSTANDING
+            setError(true); //if bad attempt, error display is triggered
+        } else {}
+            dispatch({ type: "INPUT_USER_ENTRY", payload: userResponse }) //dispatches value to reducer
+            history.push('/pg2'); //SEND USER TO UNDERSTANDING
         }
     }
 
+    //sets value from radio button; resets error message AND error status.
     const handleChange = (event) => {
         setValue(event.target.value);
         setHelperText(' ');

@@ -26,7 +26,7 @@ Once responses are submitted, user can choose to fill out a second form.
 The primary tasks of this app are to facilitate page navigation, ensure proper user inputs, and allow form submission to database.
 
 User responses are compiled in one redux reducer in index.js and accessible via store.
-reducer is seeded with initial values: { 0, 0 ,0 , ''} for the four response keys (feeling, understanding, support, comments)
+reducer is seeded with not-null initial values: { 0, 0 ,0 , ''} for the four response keys (feeling, understanding, support, comments)
 
 For user response pages:
    - on page load, store is queried for value of response key.

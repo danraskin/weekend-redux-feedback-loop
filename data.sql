@@ -3,6 +3,8 @@ CREATE DATABASE "prime_feedback";
 
 -- Switch to "prime_feedback" before making:
 -- Table to store the feedback
+
+-- CHECKS are added becauase response reducer is initialized with non-null values.
 CREATE TABLE "feedback" (
   "id" serial primary key,
   "feeling" INT 
