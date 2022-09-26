@@ -21,6 +21,10 @@ export default function Review() {
     const responseData = useSelector(store=>store.responseData)
     console.log(responseData);
 
+    const handleEditClick = () => {
+        history.push('/');
+    }
+
     const handleClick = () => {
         axios({
             method: 'POST',
@@ -47,6 +51,7 @@ export default function Review() {
                     </ul>
                 </CardContent>
                 <CardActions>
+                <Button onClick={handleEditClick}>Change responses?</Button>
                     <Button onClick={handleClick}>CONFIRM</Button>
                 </CardActions>
             </Card>

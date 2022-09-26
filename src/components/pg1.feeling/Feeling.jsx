@@ -25,12 +25,28 @@ import {
 export default function Feeling() {
     const dispatch = useDispatch();
     const history = useHistory();
-
+    
     const [error, setError] = useState(false);
     const [helperText, setHelperText] = useState('');
     const [value, setValue] = useState(0);
 
     const userResponse = { feeling: value };
+
+    const init = useSelector(store=>store.responseData.feeling)
+    useEffect(() => {   
+        initValue();
+      }, []);
+
+    const initValue = () => {
+        console.log('init: ',init);
+        if (init === undefined) {
+            setValue(0);
+        }
+        else {
+            setValue(init);
+        console.log('value: ', value);
+        }
+    }
 
     const handleClick = () => {
         if (value === 0) {

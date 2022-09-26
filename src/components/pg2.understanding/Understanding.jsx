@@ -32,6 +32,22 @@ export default function Understanding() {
 
     const userResponse = { understanding: value };
 
+    const init = useSelector(store=>store.responseData.understanding)
+    useEffect(() => {   
+        initValue();
+      }, []);
+
+    const initValue = () => {
+        console.log('init: ',init);
+        if (init === undefined) {
+            setValue(0);
+        }
+        else {
+            setValue(init);
+        console.log('value: ', value);
+        }
+    }
+
     const handleClick = () => {
         if (value === 0) {
             setHelperText('Make sure to fill out this form!')

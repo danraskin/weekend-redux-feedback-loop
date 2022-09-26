@@ -31,6 +31,21 @@ export default function Support() {
     const [value, setValue] = useState(0);
 
     const userResponse = { support: value };
+    const init = useSelector(store=>store.responseData.support)
+    useEffect(() => {   
+        initValue();
+      }, []);
+
+    const initValue = () => {
+        console.log('init: ',init);
+        if (init === undefined) {
+            setValue(0);
+        }
+        else {
+            setValue(init);
+        console.log('value: ', value);
+        }
+    }
 
     const handleClick = () => {
         if (value === 0) {

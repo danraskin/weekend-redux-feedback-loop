@@ -7,13 +7,20 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 
-const testData =
-{
-    feeling: 1,
-    understanding: 2,
-    support: 5,
-    comments: "no comment",
-}
+// let testData =
+// {
+//     feeling: 1,
+//     understanding: 2,
+//     support: 5,
+//     comments: "no comment",
+// }
+
+// let payload =
+// ['feeling',{
+//     feeling: 2,  
+// }]
+
+
 
 const responseData = (state = {}, action) => {
     const entry = action.payload

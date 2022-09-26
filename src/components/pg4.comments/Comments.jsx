@@ -22,6 +22,22 @@ export default function Comments() {
 
     const userResponse = { comments: value };
 
+    const init = useSelector(store=>store.responseData.comments)
+    useEffect(() => {   
+        initValue();
+      }, []);
+
+    const initValue = () => {
+        console.log('init: ',init);
+        if (init === undefined) {
+            setValue('');
+        }
+        else {
+            setValue(init);
+        console.log('value: ', value);
+        }
+    }
+
     const handleClick = () => {
         dispatch({ type: "INPUT_USER_ENTRY", payload: userResponse })
         setValue('');
