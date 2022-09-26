@@ -8,8 +8,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('build'));
 
-/** ---------- EXPRESS ROUTES ---------- **/
+// /** ---------- EXPRESS ROUTES ---------- **/
 
+const feedbackRouter = require('./routes/router.feedback.js');
+app.use('/feedback', feedbackRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
