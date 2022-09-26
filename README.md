@@ -4,9 +4,11 @@
 
 ## Description
 
+README totally incomplete
+
 To Do
 
-[] Setup
+[x] Setup
     [x] fill components with imports
 [] server/axios routes
     [x] POST
@@ -18,9 +20,10 @@ To Do
     [x] change inputs from sliders
     [x] alerts
 [] MUI DESIGN
-    [] center card
+    [x] center card
     [] format input cards
     [] format review display, possibly with fun 'interactive' stuff?
 [x] page navigation
     [x] success page to new form
-[] user correction?
+[x] user correction?
+    [x] previous responses display!
