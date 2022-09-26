@@ -7,29 +7,26 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 
-// let testData =
-// {
-//     feeling: 1,
-//     understanding: 2,
-//     support: 5,
-//     comments: "no comment",
-// }
-
-// let payload =
-// ['feeling',{
-//     feeling: 2,  
-// }]
-
-
-
-const responseData = (state = {}, action) => {
+const responseData = (
+    state = {
+        feeling: 0,
+        understanding: 0,
+        support: 0,
+        comments: '',
+    }, action
+) => { //only one reducer is needed. new inputed (user-edited) values overwrite previous state.
     const entry = action.payload
     if (action.type === "INPUT_USER_ENTRY") {
         return { ...state, ...entry}; 
     }
-    if (action.type === "CLEAR_FORM") {
-        return {};
-    }  
+    if (action.type === "CLEAR_FORM") { //form is cleared on submit on 'Review' page
+        return {
+            feeling: 0,
+            understanding: 0,
+            support: 0,
+            comments: '',
+        };
+    } 
     return state;
 }
 
@@ -39,9 +36,6 @@ const storeInstance = createStore(
     }),
     applyMiddleware(logger)
 );
-
-
-
 
 ReactDOM.render(
     <Provider store={storeInstance}>

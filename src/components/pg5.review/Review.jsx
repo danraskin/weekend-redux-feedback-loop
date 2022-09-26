@@ -7,6 +7,8 @@ import { HashRouter as Router, Route, useHistory } from 'react-router-dom';
 import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
+
+
 //MUI imports
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -18,8 +20,7 @@ import Button from '@mui/material/Button';
 export default function Review() {
     const history = useHistory();
     const dispatch = useDispatch();
-    const responseData = useSelector(store=>store.responseData)
-    console.log(responseData);
+    const responseData = useSelector(store=>store.responseData);
 
     const handleEditClick = () => {
         history.push('/');
@@ -36,11 +37,12 @@ export default function Review() {
             history.push('/pg6'); //send to success!
         }).catch((error) => {
             console.log('error in postOrder: ',error);
+            alert('Unable to submit. Did you submit reponses to each question?');
         })
     }
 
     return (
-        <>
+        <Box className="displayField">
             <Card sx={{width:275}}>
                 <CardContent>
                     <ul>
@@ -51,10 +53,10 @@ export default function Review() {
                     </ul>
                 </CardContent>
                 <CardActions>
-                <Button onClick={handleEditClick}>Change responses?</Button>
+                    <Button onClick={handleEditClick}>Change responses?</Button>
                     <Button onClick={handleClick}>CONFIRM</Button>
                 </CardActions>
             </Card>
-        </>
+        </Box>
     );
 }

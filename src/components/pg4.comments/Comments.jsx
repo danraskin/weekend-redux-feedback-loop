@@ -7,6 +7,8 @@ import { HashRouter as Router, Route, useHistory } from 'react-router-dom';
 import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
+
+
 //import MUI
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -24,19 +26,8 @@ export default function Comments() {
 
     const init = useSelector(store=>store.responseData.comments)
     useEffect(() => {   
-        initValue();
+        setValue(init);
       }, []);
-
-    const initValue = () => {
-        console.log('init: ',init);
-        if (init === undefined) {
-            setValue('');
-        }
-        else {
-            setValue(init);
-        console.log('value: ', value);
-        }
-    }
 
     const handleClick = () => {
         dispatch({ type: "INPUT_USER_ENTRY", payload: userResponse })

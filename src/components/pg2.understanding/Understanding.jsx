@@ -7,6 +7,7 @@ import { HashRouter as Router, Route, useHistory } from 'react-router-dom';
 import logger from 'redux-logger';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
+
 //MUI imports
 import { 
     RadioGroup, 
@@ -34,19 +35,8 @@ export default function Understanding() {
 
     const init = useSelector(store=>store.responseData.understanding)
     useEffect(() => {   
-        initValue();
+        setValue(init);
       }, []);
-
-    const initValue = () => {
-        console.log('init: ',init);
-        if (init === undefined) {
-            setValue(0);
-        }
-        else {
-            setValue(init);
-        console.log('value: ', value);
-        }
-    }
 
     const handleClick = () => {
         if (value === 0) {
