@@ -21,6 +21,10 @@ export default function Review() {
     const responseData = useSelector(store=>store.responseData)
     console.log(responseData);
 
+    const handleEditClick = () => {
+        history.push('/');
+    }
+
     const handleClick = () => {
         axios({
             method: 'POST',
@@ -33,20 +37,21 @@ export default function Review() {
         }).catch((error) => {
             console.log('error in postOrder: ',error);
         })
-
-
     }
 
     return (
         <>
             <Card sx={{width:275}}>
                 <CardContent>
-                    Feeling: {responseData.feeling}
-                    Understanding: {responseData.understanding}
-                    Support: {responseData.support}
-                    Comments: {responseData.comments}
+                    <ul>
+                        <li>Feeling: {responseData.feeling}</li>
+                        <li>Understanding: {responseData.understanding}</li>
+                        <li>Support: {responseData.support}</li>
+                        <li>Comments: {responseData.comments}</li>
+                    </ul>
                 </CardContent>
                 <CardActions>
+                <Button onClick={handleEditClick}>Change responses?</Button>
                     <Button onClick={handleClick}>CONFIRM</Button>
                 </CardActions>
             </Card>
