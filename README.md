@@ -1,10 +1,19 @@
 ## Description
 
-This project integrates React, Redux, client->server requests (Axios), and server->database requests (SQL), and some basic MUI for display and styling.
-
+This project integrates React, Redux, client->server requests (Axios), and server->database requests (SQL), and default MUI for display.
 App mimics a customer review form, specifically modelled after the daily review form students submit at Prime Digital Academy.
 
-# User Experience
+![first response field](https://user-images.githubusercontent.com/104224468/198848346-7c19d110-1616-46e3-8efd-a93ae53563de.png)
+
+    First Response Field
+![user input validation](https://user-images.githubusercontent.com/104224468/198848360-21ffd0b5-6a71-462e-9c2d-4d154d469602.png)
+
+    User Input Validation
+![Submission page](https://user-images.githubusercontent.com/104224468/198848381-d35c5a3d-4275-42e2-95f3-4371d99a98d4.png)
+
+    Submission Page
+
+## User Experience
 
 User submits responses to four questions. On submit, user responses are posted to a database of previous responses.
 
