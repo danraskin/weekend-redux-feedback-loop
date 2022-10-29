@@ -1,10 +1,6 @@
-# Project Name
-
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
-
 ## Description
 
-This project integrates React, Redux, client->server requests (Axios), and server-database requests (SQL), and some basic MUI for display and styling.
+This project integrates React, Redux, client->server requests (Axios), and server->database requests (SQL), and some basic MUI for display and styling.
 
 App mimics a customer review form, specifically modelled after the daily review form students submit at Prime Digital Academy.
 
