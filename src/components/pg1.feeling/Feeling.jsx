@@ -46,7 +46,6 @@ export default function Feeling() {
             dispatch({ type: "INPUT_USER_ENTRY", payload: userResponse }) //dispatches value to reducer
             history.push('/pg2'); //SEND USER TO UNDERSTANDING
         }
-    }
 
     //sets value from radio button; resets error message AND error status.
     const handleChange = (event) => {
